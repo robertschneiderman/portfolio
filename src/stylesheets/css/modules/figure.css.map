@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "figure.css",
+	"sources": [
+		"../../scss/modules/figure.scss"
+	],
+	"sourcesContent": [],
+	"mappings": "",
+	"names": []
+}

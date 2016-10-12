@@ -1,0 +1,53 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+```html
+<!-- `display: block` sprite -->
+<div class="icon-home"></div>
+
+<!-- `display: inline-block` sprite -->
+<img class="icon-home" />
+```
+*/
+.icon-aap {
+  background-image: url(../../images/sprites/png-sprites.png);
+  background-position: -260px 0px;
+  width: 294px;
+  height: 61px;
+}
+.icon-aapmr {
+  background-image: url(../../images/sprites/png-sprites.png);
+  background-position: 0px -76px;
+  width: 240px;
+  height: 62px;
+}
+.icon-ama {
+  background-image: url(../../images/sprites/png-sprites.png);
+  background-position: 0px -138px;
+  width: 149px;
+  height: 65px;
+}
+.icon-daniel {
+  background-image: url(../../images/sprites/png-sprites.png);
+  background-position: 0px -203px;
+  width: 84px;
+  height: 84px;
+}
+.icon-fred {
+  background-image: url(../../images/sprites/png-sprites.png);
+  background-position: -84px -203px;
+  width: 84px;
+  height: 84px;
+}
+.icon-logo {
+  background-image: url(../../images/sprites/png-sprites.png);
+  background-position: 0px 0px;
+  width: 260px;
+  height: 76px;
+}
+.icon-sandra {
+  background-image: url(../../images/sprites/png-sprites.png);
+  background-position: -168px -203px;
+  width: 84px;
+  height: 84px;
+}

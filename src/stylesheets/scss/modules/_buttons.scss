@@ -1,0 +1,15 @@
+/* !BUTTONS */
+
+.btn--main {
+    background: rgba(255,255,255,0.20);
+    border: 2px solid #FFFFFF;
+    border-radius: 4px;
+    color: #fff;
+    display: block;
+    height: 60px;
+    margin: 0 auto;
+    width: 190px;
+    &:hover {
+        background: rgba($color-primary, .8);
+    }
+}

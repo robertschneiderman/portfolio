@@ -1,0 +1,558 @@
+// ==========================================================================
+// Mixins
+// ==========================================================================
+
+// BEM selectors
+
+@mixin e($element) {
+	&__#{$element} {
+    @content;
+  }
+}
+@mixin m($modifier) {
+  &--#{$modifier} {
+    @content;
+  }
+}
+
+// Media queries
+
+@mixin mq($break) {
+  @if $break == "mobile" {
+    @media (min-width: 1px) and (max-width: $brkpoint-sm - 1) {
+      @content;
+    }
+  }
+  @elseif $break == "tablet" {
+    @media (min-width: $brkpoint-sm) and (max-width: $brkpoint-md - 1) {
+      @content;
+    }
+  }   
+  @elseif $break == "small" {
+    @media (min-width: 1px) and (max-width: $brkpoint-md - 1) {
+      @content;
+    }
+  }
+  @else if $break == "medium" {
+    @media (min-width: $brkpoint-md) {
+      @content;
+    }
+  }
+  @else if $break == "medium-only" {
+    @media (min-width: $brkpoint-md) and (max-width: $brkpoint-lg - 1) {
+      @content;
+    }
+  }  
+  @else if $break == "small-and-medium" {
+    @media (min-width: 1px) and (max-width: $brkpoint-lg - 1) {
+      @content;
+    }
+  }    
+  @else if $break == "large" {
+    @media (min-width: $brkpoint-lg) {
+      @content;
+    }
+  }
+  @else if $break == "xlarge" {
+    @media (min-width: $brkpoint-xl) {
+      @content;
+    }
+  }  
+  @else if $break == "all" {
+    @content;
+  }
+  @else {
+   	@error "Whoops! No value could be retrieved for `#{$break}`. "
+  }
+}
+@mixin responsive($properties, $default-value, $responsive-values){
+ 
+  // No named breakpoints by default
+  $named-breakpoints: () !default;
+ 
+  // Apply default property values
+  @each $property in $properties{
+    #{$property}: #{$default-value};
+  }
+  
+  @each $breakpoint, $value in $responsive-values{
+ 
+    // Get named breakpoint values
+    @if type-of($breakpoint) == string{
+      @if(map-has-key($named-breakpoints, $breakpoint)){
+        $breakpoint: map-get($named-breakpoints, $breakpoint);
+      }
+      @else{
+        @warn "Couldn't find named breakpoint: " + $breakpoint;
+      }
+    }
+ 
+    // Use Breakpoint if it exists
+    @if mixin-exists("breakpoint"){
+      // Apply at breakpoint
+      @include breakpoint($breakpoint) {
+        @each $property in $properties{
+          #{$property}: #{$value};
+        }
+      }
+    }
+    // Fallback to min-width media queries
+    @else{
+      @media screen and (min-width: $breakpoint) {
+        @each $property in $properties{
+          #{$property}: #{$value};
+        }
+      }
+    }
+ 
+  }
+}
+
+
+// Generate modifier color classes
+
+@mixin bg-colors($map) {
+	@each $theme, $color in $map {
+		&--#{$theme} {
+			background-color: $color;    
+		}
+	}
+}
+
+// Generating :before or :after pseudo-element shapes
+
+@mixin p-el(
+	$el,
+	$el-w: null,
+	$el-h: null) {
+	@if $el == "before" or $el == "after" { 
+	  &:#{$el} {
+		  @extend %pseudos;
+		  width: $el-w;
+	  	height: $el-h;
+	    @content;
+	  }
+	} 
+	@else {
+    @error "`#{$el}` is not a valid pseudo-element.";
+	}
+}
+
+// Image replacement
+
+@mixin img-replace($img, $w, $h, $disp: block) {
+	background-image: url('#{$path--rel}/#{$img}');
+	background-repeat: no-repeat;
+	width: $w;
+	height: $h;
+	display: $disp;
+}
+      
+// Adjacent sibling margins
+
+@mixin doubly($margin: 1em) {
+	& + & {
+	  margin-left: $margin;
+    @content;
+	}
+}
+
+// Grid Columns
+     
+@mixin g-columns {
+  @for $i from 1 through $g-col-count {
+    $context: g-context($g-col-width, $g-col-count ,$g-gutter-width) !global;  
+    $target: ($g-col-width * $i) + ($g-gutter-width * ($i - 1));
+    
+    // Generate column modifier classes
+    &--#{$i} {
+      width: percentage($target / $context);
+    }
+  }
+}   
+
+//Layout
+   
+@mixin hc($elem: null, $breakpoint: null) {
+  @if($breakpoint != null) {
+    @media(min-width: $breakpoint) {
+      @include elem($elem) {
+          left: 50%;
+          transform: translateX(-50%); 
+      }
+    }   
+  }
+  @else {
+      left: 50%;
+      transform: translateX(-50%);   
+  }
+}
+@mixin vc($elem: null, $breakpoint: null) {
+  @if($breakpoint != null) {
+    @media(min-width: $breakpoint) {
+      @include elem($elem) {
+          top: 50%;
+          transform: translateY(-50%); 
+      }
+    }   
+  }
+  @else {
+      top: 50%;
+      transform: translateY(-50%);   
+  }
+}
+@mixin bc($elem: null, $breakpoint: null) {
+  @if($breakpoint != null) {
+    @media(min-width: $breakpoint) {
+      @include elem($elem) {
+          left: 50%;
+          top: 50%;
+          transform: translate3d(-50%, -50%, 0); 
+      }
+    }   
+  }
+  @else {
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);    
+  }
+}
+@mixin is-active($display: block, $bp: medium) {
+  @include mq($bp) {  
+    display: none;
+    &.is-active {
+      display: $display;
+    }       
+  }
+}
+@mixin evenChildren($n) {
+  $i: 1;
+  $c: 2;
+  @while ($i <= ($n / 2) ) {
+    &:nth-child(#{$c}) {
+      @content;
+    }
+    $c: $c + 2;
+    $i: $i + 1;
+  }
+}
+
+//Modules
+
+@mixin tooltip {
+  &>.tooltip {
+    display: block;
+    opacity: 1;       
+    transform: translate3d(-50%, -107%, 0);
+  }
+}
+
+// Special 
+
+@mixin overlay($opacity: .4, $color: #000) {
+  &:after {
+    position: absolute;
+    content:"";
+    // top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    background-color: $color;
+    opacity: $opacity;
+  } 
+}
+@mixin rectangle($bg, $border: none, $pos: 10px) {
+  &::before {
+    @if(iscolor($bg)) {
+      background-color: $bg;
+    } 
+    border: $border;
+    content: '';
+    position: absolute;
+    z-index: -1;    
+  }
+  @if (length($pos) == 1) {
+    &::before {
+      top: ($pos);
+      left: ($pos);
+      bottom: ($pos);
+      right: ($pos);
+    }
+  }
+  @if (length($pos) == 2) {
+    $pos-t-b: nth($pos, 1);
+    $pos-l-r: nth($pos, 2);
+    &::before {
+      top: ($pos-t-b);
+      left: ($pos-l-r);
+      bottom: ($pos-t-b);
+      right: ($pos-l-r);
+    }
+  } 
+  @if (length($pos) == 3) {
+    $pos-t: nth($pos, 1);
+    $pos-l-r: nth($pos, 2);
+    $pos-b: nth($pos, 3);       
+    &::before {
+      top: ($pos-t);
+      left: ($pos-l-r);
+      bottom: ($pos-b);
+      right: ($pos-l-r);
+    }
+  } 
+  @if (length($pos) == 4) {
+    $pos-t: nth($pos, 1);
+    $pos-r: nth($pos, 2);
+    $pos-b: nth($pos, 3); 
+    $pos-l: nth($pos, 4);     
+    &::before {
+      top: ($pos-t);
+      left: ($pos-l);
+      bottom: ($pos-b);
+      right: ($pos-r);
+    }
+  } 
+}
+@mixin hr-linesH($q: both, $c-or-b: #000, $w: 100%, $h: 2px, $p: 0px, $noJ: null) {
+  $justify: 100% - nth($w, 1);
+  &::#{$q} {
+    @if(iscolor($c-or-b)) {
+      background-color: $c-or-b;
+    }
+    @if(length($c-or-b) == 3) {
+      border-top: $c-or-b;
+      border-bottom: $c-or-b;
+    }   
+    content: '';
+    height: $h;
+    @if(length($w) == 1) {
+      left: $justify * .5;
+    }
+    @if($noJ == noJ) {
+      left: 0px;
+    }
+    position: absolute;                   
+    transform: translateY(-50%);
+    width: nth($w, 1);  
+    @if ($q == before) {  
+      top: ($p);
+    }
+    @if ($q == after) { 
+      bottom: ($p);
+    }   
+  }   
+}
+@mixin hr-linesV($q: both, $c-or-b: #000, $w: 100%, $h: 2px, $p: 0px, $noJ: null) {
+  $justify: 100% - nth($h, 1);
+  &::#{$q} {
+    @if(iscolor($c-or-b)) {
+      background-color: $c-or-b;
+    }
+    @if(length($c-or-b) == 3) {
+      border-top: $c-or-b;
+      border-bottom: $c-or-b;
+    }   
+    content: '';
+    height: $h;
+    @if(length($w) == 1) {
+      top: $justify * .5;
+    }
+    @if($noJ == noJ) {
+      top: 0px;
+    }
+    position: absolute;                   
+    transform: translateX(-50%);
+    width: nth($w, 1);  
+    @if ($q == before) {  
+      left: ($p);
+    }
+    @if ($q == after) { 
+      right: ($p);
+    }   
+  } 
+}
+@mixin second-border($position, $boder: 5px solid white, $type: square) {
+  &:before {
+    content: " ";
+    position: absolute;
+    // z-index: -1;
+    top: $position;
+    left: $position;
+    right: $position;
+    bottom: $position;
+    border: $boder;
+    @if($type == circle) {
+      border-radius: 50%;
+    }
+  } 
+}
+@mixin third-border($position, $boder: 5px solid white, $type: square) {
+  &:after {
+    content: " ";
+    position: absolute;
+    // z-index: -1;
+    top: $position;
+    left: $position;
+    right: $position;
+    bottom: $position;
+    border: $boder;
+    @if($type == circle) {
+      border-radius: 50%;
+    }
+  } 
+}
+@mixin video {
+    margin: 0 auto;    
+    max-width: 700px;
+    width: 100%;
+    .video-wrapper {
+        padding-bottom: 56.25%; /* 16:9 */
+        height: 0;
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+// @mixin($columns...) {
+
+
+// CSS SHAPES
+@mixin caret($size, $c: #ccc, $bg-c: #fff) {
+    // .caret {
+        &:before {
+            border-top: $size solid $c;
+            border-left: $size solid transparent;
+            border-right: $size solid transparent;
+        }
+        &:after {
+            border-top: ($size - 1) solid $bg-c;
+            border-left: ($size - 1) solid transparent;
+            border-right: ($size - 1) solid transparent;
+        }
+    // }
+}
+@mixin downTriangle($color: #888) {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color transparent fade($color, 100%);
+    border-image: none;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-style: none solid solid;
+    border-width: 0 10px 10px;
+    bottom: auto;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    right: 14px;
+    top: -10px;
+}
+@mixin circle($bg-c, $circle-size, $item-size) {
+  &:after {
+    background-color: $bg-c;
+    border-radius: 50%;
+    content: '';
+    position: absolute;
+    height: $circle-size;
+    width: $circle-size;
+    // top: -50%;
+    // left: -50%;
+    // top: 0 - ($item-size / 2);
+    // left: 0 - ($item-size / 2);
+  }
+}
+
+
+@mixin bgi($file, $overlay: null, $ext: 'jpg', $bg-sz: cover) {
+  @if( $overlay == null ) {
+    @include mq(small) {
+      background-image: url('#{$path--rel}bitmap/background-assets/#{$file}-sm.#{$ext}');
+      background-size: $bg-sz;
+      background-position: 50% 50%;
+    }
+    @include mq(medium) {
+      background-image: url('#{$path--rel}bitmap/background-assets/#{$file}.#{$ext}');
+      background-size: $bg-sz;
+      background-position: 50% 50%;
+    }    
+  }
+  @else {
+    @include mq(small) {
+      background-image: linear-gradient($overlay, $overlay),
+                url('#{$path--rel}bitmap/background-assets/#{$file}-sm.#{$ext}');
+      background-size: $bg-sz;
+      background-position: 50% 50%;
+    }
+    @include mq(medium) {
+      background-image: linear-gradient($overlay, $overlay),
+                url('#{$path--rel}bitmap/background-assets/#{$file}.#{$ext}'); 
+      background-size: $bg-sz;
+      background-position: 50% 50%;
+    }    
+ 
+  }  
+}
+
+@mixin bgp($file, $ext: 'png') {
+  @if($ext == 'png') {
+    background: url('#{$path--rel}bitmap/background-assets/#{$file}.#{$ext}');
+  }
+  @if($ext == 'svg') {
+    background: url('#{$path--rel}svg/#{$file}.#{$ext}');
+  }  
+  background-repeat: repeat;
+}
+
+
+
+// Helper
+
+@mixin multiple-borders($n, $b) {   //PREVENTS DOUBLE BORDERS ON ADJACENT ITEMS
+    border-top: $b;
+    &:nth-child(#{$n}) {
+      border-bottom: $b;
+    }
+}
+@mixin svg($w, $h, $w-actual) {
+  $aspect-ratio: ($h / $w);
+  height: $w-actual * $aspect-ratio;
+  width: $w-actual;
+}
+@mixin width-height($w, $h, $w-actual) {
+    $aspect-ratio: ($h / $w);
+    height: $w-actual * $aspect-ratio;
+    width: em($w-actual, 18px);  
+}
+
+// @mixin mobile-tablet {
+//     $aspect-ratio: ($h / $w);
+//     height: $w-actual * $aspect-ratio;
+//     width: em($w-actual, 18px);
+//     @include mq(mobile) {
+//         @include svg($w, $h, $mobile-w);
+//     }
+//     @include mq(tablet) {
+//         @include svg($w, $h, $tablet-w);
+//     }     
+// }
+//TEXT STYLES
+
+@mixin text_style($e1: heading, $e2: body) {
+  @include e($e1) {
+    color: $color-primary;
+    font-size: 1.5em;
+    font-weight: 500;
+  }
+  @include e($e2) {
+    font-size: 1em;
+    font-weight: 300;
+  } 
+}
+

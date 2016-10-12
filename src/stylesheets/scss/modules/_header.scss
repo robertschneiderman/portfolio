@@ -1,0 +1,21 @@
+/* !HEADER */
+
+.header {
+	margin: 0 auto 1em;
+	max-width: 950px;
+	text-align: center;
+	line-height: 1;
+	&__main {
+		color: $color-primary;
+		// font-family: $font-family--primary;
+		font-family: $font-family--script;	
+		font-weight: 500;	
+		font-size: 4em;
+	}
+	&__sub {
+		color: #aaa;
+		font-size: 1.2em;
+		font-weight: 500;
+		line-height: 2;
+	}
+}

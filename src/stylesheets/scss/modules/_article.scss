@@ -1,0 +1,26 @@
+/* !ARTICLE */
+
+.article {
+	font-size: 1rem;
+	text-align: left;
+	&__img {
+		margin: 0 auto 1em;
+		width: 100%;
+	}
+	&__text {
+		h3 {
+
+		}
+		p {
+
+		}
+	}
+}
+
+@media (min-width: 1px) and (max-width: 799px) {
+	
+}
+
+@media (min-width: 800px) {
+
+}

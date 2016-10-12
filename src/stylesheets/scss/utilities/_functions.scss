@@ -1,0 +1,77 @@
+// ==========================================================================
+// Functions
+// ==========================================================================
+
+@function is-number($value) {
+	@return type-of($value) == 'number';
+}
+
+@function is-pixel($value) {
+	@return is-number($value) and unit($value) == 'px';
+}
+
+@function is-em($value) {
+	@return is-number($value) and unit($value) == 'em';
+}
+
+@function is-percentage($value) {
+	@return is-number($value) and unit($value) == '%';
+}
+
+
+// Import if Google Fonts URL is defined
+
+@if variable-exists(font-url--google) {
+  @import url($font-url--google);
+}
+
+// Calculate em values
+
+@function em($target, $context: $base__font-size) {
+	@return ($target / $context) * 1em;
+}
+
+// Call the color palette modifiers in color values
+
+@function palette($palette, $shade: 'base') {
+	@return map-get(map-get($color-palettes, $palette), $shade);
+}
+    
+// Set the "context" width for the grid
+    
+@function g-context($g-col-width, $g-col-count ,$g-gutter-width) {
+  $g-context: ($g-col-width * $g-col-count) + ($g-gutter-width * ($g-col-count - 1));
+  @return $g-context;
+}
+
+
+
+
+@function maxWidthInner($max-width-inner, $padding) {
+	@if( is-percentage($padding) ) {
+		$padding-decimal: ($padding * 2) / 100%;		
+		$max-width: $max-width-inner / (1 - $padding-decimal);
+		@return $max-width;
+	}	
+	@else {
+		$max-width: $max-width-inner + ($padding * 2);
+		@return $max-width;
+	}
+}
+
+@function pxPaddingSm($padding-percent) {
+	$padding-decimal: $padding-percent / 100%;
+	@return $padding-decimal * 335px;
+}
+
+@function imgContPercent($img-width, $container-width, $padding) {
+	@if ( is-percentage($padding) ) {
+		$padding-decimal: ($padding * 2) / 100%;
+		$container-width-minus-padding: $container-width * (1 - $padding-decimal);
+		@return ($img-width / $container-width-minus-padding) * 100%;		
+	}
+	@else {
+		$container-width-minus-padding: $container-width - $padding;
+		@return ($img-width / $container-width-minus-padding) * 100%;				
+	}
+}

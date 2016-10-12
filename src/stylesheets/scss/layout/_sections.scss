@@ -1,0 +1,58 @@
+/* !SECTIONS */
+
+.landing {
+	padding-top: 230px;
+	padding-bottom: 230px;
+	@include bgi('landing');	
+	// background-image: url("../../images/bitmap/background-assets/landing.png");
+	@include mq(small) {
+		padding-left: 1.5em;
+		padding-right: 1.5em;	
+	}	
+	.down-arrow {
+		@include svg(306, 189, 1.3em);
+		animation: bounce 2s 5;
+		left: 48%;
+		bottom: .5em;
+		position: absolute;
+	}
+}
+
+.about-me {
+	// @include bgp('dot-pattern', 'svg');
+	@include bgi('noise');
+	padding: 4em 1.5em;
+}
+
+.my-skills {
+	padding-top: 4em;
+	padding-bottom: 4em;
+	@include mq(small) {
+		padding-left: 1.5em;
+		padding-right: 1.5em;	
+	}
+}
+
+.my-work {
+	@include bgp('wool');
+	padding: 4em 1.5em;
+}
+
+.contact {
+	// @include bgp('stripe-pattern');	
+	@include bgi('contact');
+	@extend %clearfix;
+	background: #4B5061;
+	padding: 2em 1.5em;	
+}
+
+.footer {
+	background: lighten($color-primary, 10%);
+	padding: 1em 1.5em;
+	text-align: center;
+	p {
+		color: #fff;
+		display: inline-block;
+	}	
+}
+

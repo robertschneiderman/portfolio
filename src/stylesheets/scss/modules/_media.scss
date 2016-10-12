@@ -1,0 +1,22 @@
+/* !MEDIA */
+
+.media {
+	margin: 0 auto;
+	max-width: 1050px;
+	&__text {
+		text-align: left;
+		display: inline-block;
+		vertical-align: middle;		
+		>h3 {
+
+		}
+		>p {
+
+		}
+	}
+	&__img {
+		display: inline-block;
+		vertical-align: middle;
+	}	
+}
+

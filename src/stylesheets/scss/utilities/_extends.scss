@@ -1,0 +1,123 @@
+%text-style-1__heading {
+    color: $color-primary;
+    // color: #999;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+%text-style-1__body {
+    font-size: 1em;
+    font-weight: 300;
+}
+
+%img-zoom {
+	overflow: hidden;
+	&:hover {
+		img {
+			transform: scale(1.1) rotate(2deg);
+		}
+		&:after {
+			background-color: rgba(#444, .3);
+			content: '';
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			z-index: 1000;
+		}
+	}
+}
+
+.dark-text {
+	color: #ccc;
+}
+
+@mixin section-padding($sm-pd: $sm-pd, $md-pd: $md-pd, $type: h) {
+	@if($type == h) {
+		@include mq(small) {
+			padding-left: $sm-pd;
+			padding-right: $sm-pd;
+		}
+		@include mq(medium) {
+			padding-left: $md-pd;
+			padding-right: $md-pd;
+		}	
+	}
+	@if($type == v) {
+		@include mq(small) {
+			padding-top: $sm-pd;
+			padding-bottom: $sm-pd;
+		}
+		@include mq(medium) {
+			padding-top: $md-pd;
+			padding-bottom: $md-pd;
+		}	
+	}	
+}
+
+// HOVER EFFECTS
+
+@mixin targetUpTop() {
+ 	&:before {
+ 		background-color: $color-primary;
+ 		border-radius: 50%;
+ 		content: '';
+ 		height: 15px;
+ 		left: 50%;
+ 		position: absolute;
+ 		top: 0px;
+ 		transform: translate3d(-50%, -100%, 0);
+ 		transition: .2s transform;
+ 		width: 15px;
+ 	}
+ 	&:after {
+ 		background-color: transparent;
+ 		border: 6px solid $color-primary;
+ 		border-radius: 50%;
+ 		content: '';
+ 		height: 25px;
+ 		left: 50%;
+ 		position: absolute;
+ 		transform: translate3d(-50%, -100%, 0);	
+ 		transition: .2s transform;			 		
+ 		width: 25px;
+ 	}			 	
+ 	&:hover, &.is-active {
+	 	&:before {
+	 		transform: translate3d(-50%, -60%, 0);
+	 	}
+	 	&:after {
+	 		transform: translate3d(-50%, -60%, 0);				 		
+	 	}
+	}	
+}
+
+@mixin lineThrough($t, $c, $h, $p) {
+	@include hr-linesH($q: after, $c-or-b: $c, $w: 0%, $h: $h, $p: $p, $noJ: null);
+	&:after {
+		transition: width $t;
+	}
+	&:hover {
+		&:after {
+			width: 100%;
+		}
+	}
+}
+
+@mixin textRiseLineDrop($t, $c, $h, $d) {
+	transform: translateY(0px);
+	transition: transform $t;
+	@include hr-linesH($q: after, $c-or-b: $c, $w: 100%, $h: $h, $p: 0px, $noJ: null);
+	&:after {
+		opacity: 0;
+		transform: translateY(-($d));
+		transition: opacity $t, transform $t;
+	}
+	&:hover {
+	    transform: translateY(-($d));
+		&:after {
+			opacity: 1;
+			transform: translateY(($d));
+		}
+	}
+}
