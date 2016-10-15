@@ -20,7 +20,7 @@
 	}
 
 	Tabs.prototype.options = {
-		start: 0
+		start: 2
 	};
 
 	Tabs.prototype._init = function() {

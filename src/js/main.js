@@ -110,9 +110,9 @@ function returnRoot() {
             ['#psPB', '#designer', '#6DA6DF', '#63A6EA', 0.93],
             ['#illPB', '#designer', '#F1AD46', '#FDAE39', 0.92],
             ['#sketchPB', '#designer', '#E2E441', '#F6F938', 1.0],
-            ['#wpPB', '#technologies', '#8E8D8D', '#616161', 0.85],
-            ['#angPB', '#technologies', '#D46C6C', '#D04646', 0.80],
-            ['#gitPB', '#technologies', '#FBF0BB', '#F9EAA0', 0.77],
+            ['#reactPB', '#technologies', '#8E8D8D', '#61DAFB', 0.85],
+            ['#railsPB', '#technologies', '#D46C6C', '#D04646', 0.80],
+            ['#gitPB', '#technologies', '#8E8D8D', '#616161', 0.77],
             ['#imPB', '#skills', '#B97C7C', '#C17070', 0.97],
             ['#seoPB', '#skills', '#686B92', '#5F6396', 0.90],
             ['#analyticsPB', '#skills', '#7FAB89', '#6EA97B', 0.91]
@@ -128,7 +128,7 @@ function returnRoot() {
             });
         } 
 
-        var developerPBS = [];       
+        var technologiesPBS = [];       
 
         $(pbs).each(function() {
             var id = $(this)[0], 
@@ -171,17 +171,17 @@ function returnRoot() {
                 }
             });    
 
-            if(category === '#developer') {
-                developerPBS.push( [pb, value] );
+            if(category === '#technologies') {
+                technologiesPBS.push( [pb, value] );
             } 
 
             pbListeners(category, pb, value);
         });
 
         var waypoint = new Waypoint({
-            element: document.querySelector('#developer.is-active'),
+            element: document.querySelector('#technologies.is-active'),
             handler: function(direction) {
-                $(developerPBS).each(function() {
+                $(technologiesPBS).each(function() {
                     var pb = this[0],
                         value = this[1];
                     pb.animate(value);
@@ -204,98 +204,129 @@ function returnRoot() {
                     inited = false;
         }
 
+        // var aboutMeBgChange = new ScrollMagic.Scene({
+        //                 triggerElement: "#trigger-about",
+        //                 duration: 300
+        //             }).setTween("#bg", 0.5, {backgroundColor: "0066ff"}).addIndicators().addTo(controller);
+
+        // var aboutMeCanvasChange = new ScrollMagic.Scene({
+        //                 triggerElement: "#trigger-about",
+        //                 duration: 300
+        //             }).setTween("#canvas2", 0.5, {opacity: 1}).addIndicators().addTo(controller);                               
+                    
+        // var growingCircle = new ScrollMagic.Scene({
+        //                 triggerElement: "#trigger-skills",
+        //                 duration: 300
+        //             }).setTween("#growingCircle", 0.5, {scale: 30}).addIndicators().addTo(controller);
+
+        // var aboutMeCanvasChange = new ScrollMagic.Scene({
+        //                 triggerElement: "#trigger0",
+        //                 duration: 300
+        //             }).setTween("#canvas2", 0.5, {opacity: 1}).addTo(controller); 
+
         var aboutMeBgChange = new ScrollMagic.Scene({
-                        triggerElement: "#trigger0",
+                        triggerElement: "#trigger-about",
                         duration: 300
-                    }).setTween("#bg", 0.5, {backgroundColor: "0066ff"}).addTo(controller);
+                    }).setTween("#bg", 0.5, {background: '#422180'}).addTo(controller);
 
         var aboutMeCanvasChange = new ScrollMagic.Scene({
-                        triggerElement: "#trigger0",
+                        triggerElement: "#trigger-about",
                         duration: 300
-                    }).setTween("#canvas2", 0.5, {opacity: 1}).addTo(controller);                               
-                    
-        var growingCircle = new ScrollMagic.Scene({
-                        triggerElement: "#trigger",
-                        duration: 300
-                    }).setTween("#growingCircle", 0.5, {backgroundColor: "#515158)"}).addTo(controller);
+                    }).setTween("#canvas2", 0.5, {opacity: 1}).addTo(controller);  
 
-        // var scene2 = new ScrollMagic.Scene({
-        //                 triggerElement: "#trigger",
+        var bgChange = new ScrollMagic.Scene({
+                        triggerElement: "#trigger-skills",
+                        duration: 300
+                    }).setTween("#bg", 0.5, {background: 'rgba(51,51,51,1)', opacity: 1}).addTo(controller);
+
+        var skillsCanvasChange1 = new ScrollMagic.Scene({
+                        triggerElement: "#trigger-skills",
+                        duration: 300
+                    }).setTween("#canvas", 0.5, {opacity: 0}).addTo(controller);                                                                
+
+        var skillsCanvasChange = new ScrollMagic.Scene({
+                        triggerElement: "#trigger-skills",
+                        duration: 300
+                    }).setTween("#canvas2", 0.5, {opacity: 0}).addTo(controller);
+
+        // var mySkillsOverlay = new ScrollMagic.Scene({
+        //                 triggerElement: "#trigger-skills",
         //                 duration: 300
-        //             }).setTween("#lines-crazy", 0.5, {opacity: 0}).addTo(controller);
+        //             }).setTween("#bg", 0.5, {opacity: 0}).addIndicators().addTo(controller);         
 
-        // var scene2 = new ScrollMagic.Scene({
-        //                 triggerElement: "#trigger",
+        var mySkillsFadeIn = new ScrollMagic.Scene({
+                        triggerElement: "#trigger-skills",
+                        duration: 300
+                    }).setTween(".section--my-skills", 0.5, {opacity: 1}).addTo(controller);
+
+        // var bgChange = new ScrollMagic.Scene({
+        //                 triggerElement: "#trigger-projects",
         //                 duration: 300
-        //             }).setTween("#lines-crazy g path", 0.5, {fill: "#515158)"}).addTo(controller);
+        //             }).setTween("#bg", 0.5, {background: 'rgba(51,51,51,0)', opacity: 1}).addTo(controller);        
 
-        var scene3 = new ScrollMagic.Scene({
-                        triggerElement: "#trigger",
-                        duration: 300
-                    }).setTween("#canvas", 0.5, {opacity: 0}).addTo(controller);         
 
-        var scene3 = new ScrollMagic.Scene({
-                        triggerElement: "#trigger",
+        var burstFadeIn = new ScrollMagic.Scene({
+                        triggerElement: "#trigger-skills",
                         duration: 300
-                    }).setTween("#lines2", 0.5, {opacity: 1}).addTo(controller);
+                    }).setTween("#burst", 0.5, {opacity: 1}).addTo(controller);
 
-        var scene3 = new ScrollMagic.Scene({
-                        triggerElement: "#trigger",
+        var burstFadeOut = new ScrollMagic.Scene({
+                        triggerElement: "#trigger-projects",
                         duration: 300
-                    }).setTween("#bg", 0.5, {backgroundColor: "#2C2140"}).addTo(controller);        
+                    }).setTween("#burst", 0.5, {opacity: 0}).addTo(controller);                           
+
+        var myProjectsFadeIn = new ScrollMagic.Scene({
+                        triggerElement: "#trigger-projects",
+                        duration: 600
+                    }).setTween(".section--my-projects", 0.5, {opacity: 1}).addTo(controller); 
+
+        var myProjectsFadeIn = new ScrollMagic.Scene({
+                        triggerElement: "#trigger-projects",
+                        duration: 600
+                    }).setTween("#lines", 0.5, {opacity: 1}).addTo(controller);
+
+        var myWorkFadeIn = new ScrollMagic.Scene({
+                        triggerElement: "#trigger-work",
+                        duration: 600
+                    }).setTween(".section-my-work", 0.5, {opacity: 1}).addTo(controller);
+
+        var myWorkFadeIn = new ScrollMagic.Scene({
+                        triggerElement: "#trigger-work",
+                        duration: 600
+                    }).setTween("#lines2", 0.5, {opacity: 1}).addTo(controller);                                               
+        var contactFadeIn = new ScrollMagic.Scene({
+                        triggerElement: "#trigger-contact",
+                        duration: 600
+                    }).setTween(".section--contact", 0.5, {opacity: 1}).addTo(controller);
+
+        var lines1FadeOut = new ScrollMagic.Scene({
+                        triggerElement: "#trigger-contact",
+                        duration: 900
+                    }).setTween("#lines", 0.5, {opacity: 0}).addTo(controller);
+
+        var lines2FadeOut = new ScrollMagic.Scene({
+                        triggerElement: "#trigger-contact",
+                        duration: 900
+                    }).setTween("#lines2", 0.5, {opacity: 0}).addTo(controller);                                               
+
+        var contactCanvasChange = new ScrollMagic.Scene({
+                        triggerElement: "#trigger-contact",
+                        duration: 300
+                    }).setTween("#canvas", 0.5, {opacity: 1}).addTo(controller);        
+
+
+
+        // var myProjectsCanvasChange = new ScrollMagic.Scene({
+        //                 triggerElement: "#trigger-projects",
+        //                 duration: 600
+        //             }).setTween("#canvas3", 0.5, {opacity: 1}).addTo(controller);
+
 
         // var scene3 = new ScrollMagic.Scene({
         //                 triggerElement: "#trigger",
         //                 duration: 300
         //             }).setTween("#lines2 path", 0.5, {opacity: 1}).addTo(controller);        
-
-        var scene4 = new ScrollMagic.Scene({
-                        triggerElement: "#trigger",
-                        duration: 300
-                    }).setTween(".section--my-skills", 0.5, {opacity: 1}).addTo(controller);
-                                              
-
-        var scene5 = new ScrollMagic.Scene({
-                        triggerElement: "#trigger2",
-                        duration: 400
-                    }).setTween("#bg", 0.5, {backgroundColor: "#4B5E6A)"}).addTo(controller);
-
-        var scene6 = new ScrollMagic.Scene({
-                        triggerElement: "#trigger2",
-                        duration: 400
-                    }).setTween("#canvas2", 0.5, {opacity: 0}).addTo(controller);
-
-        var scene7 = new ScrollMagic.Scene({
-                        triggerElement: "#trigger2",
-                        duration: 400
-                    }).setTween("#both", 0.5, {opacity: 1}).addTo(controller);
-
-        var scene8 = new ScrollMagic.Scene({
-                        triggerElement: "#trigger2",
-                        duration: 400
-                    }).setTween(".section--my-work", 0.5, {opacity: 1}).addTo(controller);  
-
-        var scene7a = new ScrollMagic.Scene({
-                        triggerElement: "#trigger3",
-                        duration: 400
-                    }).setTween("#bg", 0.5, {backgroundColor: '#72878e'})
-                        .addIndicators().addTo(controller);                          
-
-        var scene7 = new ScrollMagic.Scene({
-                        triggerElement: "#trigger4",
-                        duration: 400
-                    }).setTween("#bg", 0.5, {backgroundColor: '#333'})
-                        .addIndicators().addTo(controller);
-
-        var scene8 = new ScrollMagic.Scene({
-                        triggerElement: "#trigger4",
-                        duration: 400
-                    }).setTween("#both", 0.5, {opacity: 0}).addTo(controller);
-
-        var scene8 = new ScrollMagic.Scene({
-                        triggerElement: "#trigger4",
-                        duration: 400
-                    }).setTween(".section--contact", 0.5, {opacity: 1}).addTo(controller);                                                                                           
+                                                                                                                                         
                         
 
         // ------  SVG  ------  
@@ -325,7 +356,6 @@ function returnRoot() {
 
         // loadSvg("#lines2", "./images/svg/embed/lines2");
         // loadSvg("#lines-crazy", "./images/svg/embed/lines-crazy");
-        loadSvg("#both", "./images/svg/embed/both");
 
 
         // var obj = document.getElementById('full');
@@ -343,7 +373,7 @@ function returnRoot() {
 
         if($('#tabs').length > 0) {
             new Tabs( document.getElementById('tabs'), {
-                start: 0
+                start: 2
             }); 
         }  
 
@@ -375,12 +405,19 @@ function returnRoot() {
 
         // ------  WAYPOINT  ------
 
-        $('#about-c, .tabs__content, .container--works > .row, .project-container').each( function( i ) {
+        $('#about-c, .tabs__content, .container--works > .row, .project-container').each( function( i, node ) {
             $(this).css('opacity', 0);
             new Waypoint({
                 element: $(this),
                 handler: function(direction) {
-                    $(this.element).addClass('fadeInUp');
+                  $(this.element).addClass('fadeInUp');
+                  console.log("$(node):", $(node));
+                  $node = $(node);
+                  // debugger;
+                  if ($node.hasClass('project-container')) {
+                    console.log("success??");
+                    $node.find('video').get(0).play();
+                  }
                 },
                 offset: 450
             });            
@@ -413,7 +450,6 @@ function returnRoot() {
         // TweenLite.set($startAnim, {autoAlpha:0});
                                                 
         // TweenMax.delayedCall(2, reset);
-        
         $titlePaths.each(function(){
             TweenMax.fromTo(this, 2, {autoAlpha:0, rotation:randomNum(-360, 360), rotationX:randomNum(-360, 360), rotationY:randomNum(-360, 360), rotationZ:randomNum(-360, 360), scale:0}, {autoAlpha:1, rotation:0, rotationX:0, rotationY:0, rotationZ:0, scale:1, onComplete: textFadeDown});                 
         });

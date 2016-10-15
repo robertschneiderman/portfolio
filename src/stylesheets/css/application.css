@@ -562,7 +562,7 @@ section.section--landing {
     z-index: -1;
 }
 
-#lines2 {
+#lines, #lines2 {
     opacity: 0;
     position: fixed;
     left: 0%;
@@ -589,7 +589,7 @@ section.section--landing {
     z-index: -1;
 }
 
-#both {
+#lines {
     opacity: 0;
     position: fixed;
     left: 0%;
@@ -648,7 +648,7 @@ section.section--landing {
     margin-bottom: 4rem;
 }              
 
-.section--my-work {
+.section--my-projects {
     background: none;
     opacity: 0;
     /* background-image: url("../../images/bitmap/background-assets/wool.png"); */
@@ -659,6 +659,7 @@ section.section--landing {
 
 .section--my-work-developer {
   /*margin-top: 10rem;*/
+  margin-bottom: 11rem;
 } 
 
 .section--contact {
@@ -667,7 +668,7 @@ section.section--landing {
 }       
 
 .section--footer {
-  background: #333333;
+  /* background: #333333; */
   padding: 0.4rem 1.5rem;
   text-align: center;
 }
@@ -709,6 +710,7 @@ section.section--landing {
 }
 
 .container--works {
+    padding-bottom: 13rem;
     margin: 0 auto;
     max-width: 1200px;
     width: 90%;
@@ -1630,11 +1632,11 @@ li.tabs-list__item svg use {
   text-align: center;
 }
 
-.project-container {display: flex;justify-content: space-between;width: 90%;max-width: 1350px;margin: 0 auto 15rem;left: -3rem;}
+.project-container {display: flex;justify-content: space-between;width: 90%;max-width: 1350px;margin: 0 auto 15rem;/* left: -3rem; */}
 
 .pjc-right {
   left: auto;
-  right: -3rem;
+  /* right: -3rem; */
 }
 
 .project-video-wrapper {/* margin: 0 auto; *//* display: inline-block; *//* max-width: 1300px; */width: 55%;}
@@ -1647,8 +1649,10 @@ li.tabs-list__item svg use {
 }
 
 .project-video {
+  /* border: 1px solid #fff; */
   width: 100%;
-  right: -8px;
+  /* right: -8px; */
+  border-radius: 4px;
 }
 
 .project-img-link {
@@ -1687,7 +1691,7 @@ li.tabs-list__item svg use {
 .project-title {color: #77c8b3;font-weight: 700;font-size: 1.7rem;}
 
 .project-logo {
-  width: 20rem;
+  width: 16rem;
 }
 
 .project-description {
@@ -1731,6 +1735,17 @@ canvas {
 #bg {
   background-color: rgba(0, 33, 128, 0.6);
   z-index: 0;
+  /*opacity: 0;*/
+}
+
+#burst {
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  position: fixed;  
+  opacity: 0;
+  z-index: 0;
+  width: 100%;
 }
 
 #canvas, #canvas2 {
@@ -1741,13 +1756,60 @@ canvas {
   opacity: 0;
 }
 
-#lines2, #lines-crazy, #both {
+#canvas3 {
+  opacity: 0;
+}
+
+#lines2, #lines-crazy, #lines {
   z-index: 0;
 }
 
-#trigger0 {
+.trigger {
   position: absolute;
-  bottom: 0;
+  bottom: 0; 
 }
 
+#growing-circle-purple {
+  background-color: rgba(43, 34, 61, .7);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  position: fixed;
+  height: 10px;
+  width: 10px;
+}
+
+#growing-circle-white1 {
+  background: transparent;
+  border: 10px solid #494063;
+  height: 2px;
+  width: 2px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  position: fixed;  
+}
+
+
+#growing-circle-white2 {
+  background: transparent;
+  border: 10px solid #494063;
+  height: 2px;
+  width: 2px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  position: fixed;  
+}
+
+#lines, #lines2 {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  opacity: 0;
+  bottom: -100px;
+}
 /*# sourceMappingURL=application.css.map */
