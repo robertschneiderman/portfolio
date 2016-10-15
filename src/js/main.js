@@ -309,10 +309,10 @@ function returnRoot() {
                         duration: 900
                     }).setTween("#lines2", 0.5, {opacity: 0}).addTo(controller);                                               
 
-        var contactCanvasChange = new ScrollMagic.Scene({
-                        triggerElement: "#trigger-contact",
-                        duration: 300
-                    }).setTween("#canvas", 0.5, {opacity: 1}).addTo(controller);        
+        // var contactCanvasChange = new ScrollMagic.Scene({
+        //                 triggerElement: "#trigger-contact",
+        //                 duration: 300
+        //             }).setTween("#canvas", 0.5, {opacity: 1}).addTo(controller);        
 
 
 
@@ -450,6 +450,7 @@ function returnRoot() {
         // TweenLite.set($startAnim, {autoAlpha:0});
                                                 
         // TweenMax.delayedCall(2, reset);
+        debugger;
         $titlePaths.each(function(){
             TweenMax.fromTo(this, 2, {autoAlpha:0, rotation:randomNum(-360, 360), rotationX:randomNum(-360, 360), rotationY:randomNum(-360, 360), rotationZ:randomNum(-360, 360), scale:0}, {autoAlpha:1, rotation:0, rotationX:0, rotationY:0, rotationZ:0, scale:1, onComplete: textFadeDown});                 
         });

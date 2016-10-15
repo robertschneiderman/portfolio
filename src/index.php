@@ -175,9 +175,9 @@
 
 	  <div class="project-container">
 	  	<div class="project-video-wrapper">
-	  	  <a href="sites/stocks-earning/" rel="external">
+	  	  <a href="http://pokerwithchucknorris.com" rel="external">
 	  	      <video id="video" class="project-video">
-	  	        <source src="./images/poker_with_chuck_norris.webm" type="video/webm">
+	  	        <source data-src="./images/poker_with_chuck_norris.webm" type="video/webm">
 	  	      Your browser does not support the video tag.
 	  	      </video> 
 	  	      <!-- <img src="./images/poker_with_chuck_norris_screen.png" alt=""> -->
@@ -189,19 +189,19 @@
 	    <div class="project-text">
 	    	<div id="poker-logo" class="project-logo"></div>
 	    	<!-- <h3 class="project-title">Poker with Chuck Norris</h3> -->
-	    	<p class="project-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus maiores, tempora nemo sit sed, quo ut reprehenderit, dignissimos error praesentium numquam quam laborum voluptatum quidem ea cum nostrum. Vitae, soluta.</p>
+	    	<p class="project-description">Poker with Chuck Norris is a Texas Holdem game developed with React. Rob built an advanced AI that leverages calls to a poker odds API. The game features Facebook login and rich social media functionality</p>
 	    </div>
 	  </div>
 
 	  <div class="project-container pjc-right">
 	    <div class="project-text">
 	    	<img class="project-logo" src="./images/svg/stellar_pixels_logo.svg">
-	    	<p class="project-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus maiores, tempora nemo sit sed, quo ut reprehenderit, dignissimos error praesentium numquam quam laborum voluptatum quidem ea cum nostrum. Vitae, soluta.</p>
+	    	<p class="project-description">Stellar Pixels is a full stack stock photography web application that is built using React and Rails. The site has a rich database of photos that it gets from API calls.</p>
 	    </div>      
 	  	<div class="project-video-wrapper">
-	  	  <a href="sites/stocks-earning/" rel="external">
+	  	  <a href="https://stellar-pixels.herokuapp.com/#/?_k=1ee712" rel="external">
 	  	      <video id="video2" class="project-video">
-	  	        <source src="./images/stellar_pixels.webm" type="video/webm">
+	  	        <source data-src="./images/stellar_pixels.webm" type="video/webm">
 	  	      Your browser does not support the video tag.
 	  	      </video>
 	  	      <!-- <img src="./images/stellar_pixels_screen.png" alt="">     -->
@@ -214,9 +214,9 @@
 
 	  <div class="project-container">
 	  	<div class="project-video-wrapper">
-	  	  <a href="sites/stocks-earning/" rel="external">
+	  	  <a href="http://tabsoverflow.com" rel="external">
 	  	      <video id="video3" class="project-video">
-	  	        <source src="./images/tabs_overflow.webm" type="video/webm">
+	  	        <source data-src="./images/tabs_overflow.webm" type="video/webm">
 	  	      Your browser does not support the video tag.
 	  	      </video>    
 	  	      <!-- <img src="./images/tabs_overflow_screen.png" alt=""> 	  	       -->
@@ -227,7 +227,7 @@
 	  	</div>
 	    <div class="project-text">
 	    	<img class="project-logo" src="./images/svg/tabs_overflow_logo.svg">
-	    	<p class="project-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus maiores, tempora nemo sit sed, quo ut reprehenderit, dignissimos error praesentium numquam quam laborum voluptatum quidem ea cum nostrum. Vitae, soluta.</p>
+	    	<p class="project-description">Tabs Overflow is a Chrome extension that helps users effectively manage their tabs by storing less recently used tabs into an "overflow tab." The project receives asynchronous calls from the Google Chrome API in order to get tab data back.</p>
 	    </div>
 	  </div>
 
@@ -242,21 +242,21 @@
 	    <div class="container--works">
 	        <div class="row cj">
 	            <div class="container--work">
-	                <a href="sites/stocks-earning/" rel="external"><img class="img--work lazyload" data-sizes="auto" data-src="images/bitmap/srcset-assets/ac.jpg" data-srcset="images/bitmap/srcset-assets/stocks-earning-sm.jpg 350w, images/bitmap/srcset-assets/stocks-earning-md.jpg 425w, images/bitmap/srcset-assets/stocks-earning-lg.jpg 500w, images/bitmap/srcset-assets/stocks-earning-sm@2x.jpg 700w, images/bitmap/srcset-assets/stocks-earning-md@2x.jpg 850w, images/bitmap/srcset-assets/stocks-earning-lg@2x.jpg 1000w">
+	                <a href="./work/stocks_earning/" rel="external"><img class="img--work lazyload" data-sizes="auto" data-src="images/bitmap/srcset-assets/ac.jpg" data-srcset="images/bitmap/srcset-assets/stocks-earning-sm.jpg 350w, images/bitmap/srcset-assets/stocks-earning-md.jpg 425w, images/bitmap/srcset-assets/stocks-earning-lg.jpg 500w, images/bitmap/srcset-assets/stocks-earning-sm@2x.jpg 700w, images/bitmap/srcset-assets/stocks-earning-md@2x.jpg 850w, images/bitmap/srcset-assets/stocks-earning-lg@2x.jpg 1000w">
 	                    <svg class="img--link">
 	                        <use xlink:href="images/sprites/svgsprite.svg#link"></use>
 	                    </svg>
 	                </a>
 	            </div>&nbsp;
 	            <div class="container--work">
-	                <a href="sites/boulevard/" rel="external"><img class="img--work lazyload" data-sizes="auto" data-src="images/bitmap/srcset-assets/boulevard.jpg" data-srcset="images/bitmap/srcset-assets/boulevard-sm.jpg 350w, images/bitmap/srcset-assets/boulevard-md.jpg 425w, images/bitmap/srcset-assets/boulevard-lg.jpg 500w, images/bitmap/srcset-assets/boulevard-sm@2x.jpg 700w, images/bitmap/srcset-assets/boulevard-md@2x.jpg 850w, images/bitmap/srcset-assets/boulevard-lg@2x.jpg 1000w">
+	                <a href="./work/boulevard_medical/" rel="external"><img class="img--work lazyload" data-sizes="auto" data-src="images/bitmap/srcset-assets/boulevard.jpg" data-srcset="images/bitmap/srcset-assets/boulevard-sm.jpg 350w, images/bitmap/srcset-assets/boulevard-md.jpg 425w, images/bitmap/srcset-assets/boulevard-lg.jpg 500w, images/bitmap/srcset-assets/boulevard-sm@2x.jpg 700w, images/bitmap/srcset-assets/boulevard-md@2x.jpg 850w, images/bitmap/srcset-assets/boulevard-lg@2x.jpg 1000w">
 	                    <svg class="img--link">
 	                        <use xlink:href="images/sprites/svgsprite.svg#link"></use>
 	                    </svg>
 	                </a>
 	            </div>&nbsp;
 	            <div class="container--work">
-	                <a href="sites/affiliated-endo/" rel="external"><img class="img--work lazyload" data-sizes="auto" data-src="images/bitmap/srcset-assets/affiliated-endo.jpg" data-srcset="images/bitmap/srcset-assets/affiliated-endo-sm.jpg 350w, images/bitmap/srcset-assets/affiliated-endo-md.jpg 425w, images/bitmap/srcset-assets/affiliated-endo-lg.jpg 500w, images/bitmap/srcset-assets/affiliated-endo-sm@2x.jpg 700w, images/bitmap/srcset-assets/affiliated-endo-md@2x.jpg 850w, images/bitmap/srcset-assets/affiliated-endo-lg@2x.jpg 1000w">
+	                <a href="./work/affiliated_endo/" rel="external"><img class="img--work lazyload" data-sizes="auto" data-src="images/bitmap/srcset-assets/affiliated-endo.jpg" data-srcset="images/bitmap/srcset-assets/affiliated-endo-sm.jpg 350w, images/bitmap/srcset-assets/affiliated-endo-md.jpg 425w, images/bitmap/srcset-assets/affiliated-endo-lg.jpg 500w, images/bitmap/srcset-assets/affiliated-endo-sm@2x.jpg 700w, images/bitmap/srcset-assets/affiliated-endo-md@2x.jpg 850w, images/bitmap/srcset-assets/affiliated-endo-lg@2x.jpg 1000w">
 	                    <svg class="img--link">
 	                        <use xlink:href="images/sprites/svgsprite.svg#link"></use>
 	                    </svg>
@@ -265,14 +265,14 @@
 	        </div>
 	        <div class="row cj auto two-thirds">
 	            <div class="container--work">
-	                <a href="sites/progressive-care/" rel="external"><img class="img--work lazyload" data-sizes="auto" data-src="images/bitmap/srcset-assets/progressive-care.jpg" data-srcset="images/bitmap/srcset-assets/progressive-care-sm.jpg 350w, images/bitmap/srcset-assets/progressive-care-md.jpg 425w, images/bitmap/srcset-assets/progressive-care-lg.jpg 500w, images/bitmap/srcset-assets/progressive-care-sm@2x.jpg 700w, images/bitmap/srcset-assets/progressive-care-md@2x.jpg 850w, images/bitmap/srcset-assets/progressive-care-lg@2x.jpg 1000w">
+	                <a href="./work/progressive_care/" rel="external"><img class="img--work lazyload" data-sizes="auto" data-src="images/bitmap/srcset-assets/progressive-care.jpg" data-srcset="images/bitmap/srcset-assets/progressive-care-sm.jpg 350w, images/bitmap/srcset-assets/progressive-care-md.jpg 425w, images/bitmap/srcset-assets/progressive-care-lg.jpg 500w, images/bitmap/srcset-assets/progressive-care-sm@2x.jpg 700w, images/bitmap/srcset-assets/progressive-care-md@2x.jpg 850w, images/bitmap/srcset-assets/progressive-care-lg@2x.jpg 1000w">
 	                    <svg class="img--link">
 	                        <use xlink:href="images/sprites/svgsprite.svg#link"></use>
 	                    </svg>
 	                </a>
 	            </div>&nbsp;
 	            <div class="container--work">
-	                <a href="sites/somerset-peds/" rel="external"><img class="img--work lazyload" data-sizes="auto" data-src="images/bitmap/srcset-assets/somerset-peds.jpg" data-srcset="images/bitmap/srcset-assets/somerset-peds-sm.jpg 350w, images/bitmap/srcset-assets/somerset-peds-md.jpg 425w, images/bitmap/srcset-assets/somerset-peds-lg.jpg 500w, images/bitmap/srcset-assets/somerset-peds-sm@2x.jpg 700w, images/bitmap/srcset-assets/somerset-peds-md@2x.jpg 850w, images/bitmap/srcset-assets/somerset-peds-lg@2x.jpg 1000w">
+	                <a href="./work/somerset-peds/" rel="external"><img class="img--work lazyload" data-sizes="auto" data-src="images/bitmap/srcset-assets/somerset-peds.jpg" data-srcset="images/bitmap/srcset-assets/somerset-peds-sm.jpg 350w, images/bitmap/srcset-assets/somerset-peds-md.jpg 425w, images/bitmap/srcset-assets/somerset-peds-lg.jpg 500w, images/bitmap/srcset-assets/somerset-peds-sm@2x.jpg 700w, images/bitmap/srcset-assets/somerset-peds-md@2x.jpg 850w, images/bitmap/srcset-assets/somerset-peds-lg@2x.jpg 1000w">
 	                    <svg class="img--link">
 	                        <use xlink:href="images/sprites/svgsprite.svg#link"></use>
 	                    </svg>
