@@ -202,27 +202,47 @@ function returnRoot() {
         } else {
             var activePB = $(".tabs__content > div.is-active .progress-bar"),
                     inited = false;
-        }        
+        }
+
+        var aboutMeBgChange = new ScrollMagic.Scene({
+                        triggerElement: "#trigger0",
+                        duration: 300
+                    }).setTween("#bg", 0.5, {backgroundColor: "0066ff"}).addTo(controller);
+
+        var aboutMeCanvasChange = new ScrollMagic.Scene({
+                        triggerElement: "#trigger0",
+                        duration: 300
+                    }).setTween("#canvas2", 0.5, {opacity: 1}).addTo(controller);                               
                     
-        var scene1 = new ScrollMagic.Scene({
+        var growingCircle = new ScrollMagic.Scene({
                         triggerElement: "#trigger",
                         duration: 300
-                    }).setTween("#bg", 0.5, {backgroundColor: "#515158)"}).addTo(controller);
+                    }).setTween("#growingCircle", 0.5, {backgroundColor: "#515158)"}).addTo(controller);
 
-        var scene2 = new ScrollMagic.Scene({
-                        triggerElement: "#trigger",
-                        duration: 300
-                    }).setTween("#lines-crazy", 0.5, {opacity: 0}).addTo(controller);
+        // var scene2 = new ScrollMagic.Scene({
+        //                 triggerElement: "#trigger",
+        //                 duration: 300
+        //             }).setTween("#lines-crazy", 0.5, {opacity: 0}).addTo(controller);
 
-        var scene2 = new ScrollMagic.Scene({
+        // var scene2 = new ScrollMagic.Scene({
+        //                 triggerElement: "#trigger",
+        //                 duration: 300
+        //             }).setTween("#lines-crazy g path", 0.5, {fill: "#515158)"}).addTo(controller);
+
+        var scene3 = new ScrollMagic.Scene({
                         triggerElement: "#trigger",
                         duration: 300
-                    }).setTween("#lines-crazy g path", 0.5, {fill: "#515158)"}).addTo(controller);      
+                    }).setTween("#canvas", 0.5, {opacity: 0}).addTo(controller);         
 
         var scene3 = new ScrollMagic.Scene({
                         triggerElement: "#trigger",
                         duration: 300
                     }).setTween("#lines2", 0.5, {opacity: 1}).addTo(controller);
+
+        var scene3 = new ScrollMagic.Scene({
+                        triggerElement: "#trigger",
+                        duration: 300
+                    }).setTween("#bg", 0.5, {backgroundColor: "#2C2140"}).addTo(controller);        
 
         // var scene3 = new ScrollMagic.Scene({
         //                 triggerElement: "#trigger",
@@ -232,7 +252,7 @@ function returnRoot() {
         var scene4 = new ScrollMagic.Scene({
                         triggerElement: "#trigger",
                         duration: 300
-                    }).setTween(".section--my-skills", 0.5, {opacity: 1}).addTo(controller);        
+                    }).setTween(".section--my-skills", 0.5, {opacity: 1}).addTo(controller);
                                               
 
         var scene5 = new ScrollMagic.Scene({
@@ -243,7 +263,7 @@ function returnRoot() {
         var scene6 = new ScrollMagic.Scene({
                         triggerElement: "#trigger2",
                         duration: 400
-                    }).setTween("#lines2", 0.5, {opacity: 0}).addTo(controller);
+                    }).setTween("#canvas2", 0.5, {opacity: 0}).addTo(controller);
 
         var scene7 = new ScrollMagic.Scene({
                         triggerElement: "#trigger2",
@@ -253,25 +273,59 @@ function returnRoot() {
         var scene8 = new ScrollMagic.Scene({
                         triggerElement: "#trigger2",
                         duration: 400
-                    }).setTween(".section--my-work", 0.5, {opacity: 1}).addTo(controller);        
+                    }).setTween(".section--my-work", 0.5, {opacity: 1}).addTo(controller);  
 
-        var scene7 = new ScrollMagic.Scene({
+        var scene7a = new ScrollMagic.Scene({
                         triggerElement: "#trigger3",
                         duration: 400
-                    }).setTween("#bg", 0.5, {backgroundColor: '#333'}).addTo(controller);
+                    }).setTween("#bg", 0.5, {backgroundColor: '#72878e'})
+                        .addIndicators().addTo(controller);                          
+
+        var scene7 = new ScrollMagic.Scene({
+                        triggerElement: "#trigger4",
+                        duration: 400
+                    }).setTween("#bg", 0.5, {backgroundColor: '#333'})
+                        .addIndicators().addTo(controller);
 
         var scene8 = new ScrollMagic.Scene({
-                        triggerElement: "#trigger3",
+                        triggerElement: "#trigger4",
                         duration: 400
                     }).setTween("#both", 0.5, {opacity: 0}).addTo(controller);
 
         var scene8 = new ScrollMagic.Scene({
-                        triggerElement: "#trigger3",
+                        triggerElement: "#trigger4",
                         duration: 400
                     }).setTween(".section--contact", 0.5, {opacity: 1}).addTo(controller);                                                                                           
                         
 
-        // ------  SVG OBJECT  ------  
+        // ------  SVG  ------  
+
+        function loadSvg(selector, url) {
+          var target = document.querySelector(selector);
+
+          // If SVG is supported
+          if (typeof SVGRect != "undefined") {
+            // Request the SVG file
+            var ajax = new XMLHttpRequest();
+            ajax.open("GET", url + ".svg", true);
+            ajax.send();
+
+            // Append the SVG to the target
+            ajax.onload = function(e) {
+              target.innerHTML = ajax.responseText;
+            }
+          } else {
+            // Fallback to png
+            target.innerHTML = "<img src='" + url + ".png' />";
+          }
+        }        
+
+        $('#logo').load('./images/svg/logo.svg', rotateCharacters);
+        loadSvg('#poker-logo', './images/svg/chuck_norris_logo');
+
+        // loadSvg("#lines2", "./images/svg/embed/lines2");
+        // loadSvg("#lines-crazy", "./images/svg/embed/lines-crazy");
+        loadSvg("#both", "./images/svg/embed/both");
 
 
         // var obj = document.getElementById('full');
@@ -321,7 +375,7 @@ function returnRoot() {
 
         // ------  WAYPOINT  ------
 
-        $('#about-c, .tabs__content, .container--works > .row').each( function( i ) {
+        $('#about-c, .tabs__content, .container--works > .row, .project-container').each( function( i ) {
             $(this).css('opacity', 0);
             new Waypoint({
                 element: $(this),
@@ -351,5 +405,37 @@ function returnRoot() {
         //     fontRatio: 0.5
         // });            
     }); 
+
+    function rotateCharacters(){
+
+        $titlePaths = $('.img--headline svg #title').find("path");
+        $subtitlePaths = $('.img--headline svg #subtitle').find("path");
+        // TweenLite.set($startAnim, {autoAlpha:0});
+                                                
+        // TweenMax.delayedCall(2, reset);
+        
+        $titlePaths.each(function(){
+            TweenMax.fromTo(this, 2, {autoAlpha:0, rotation:randomNum(-360, 360), rotationX:randomNum(-360, 360), rotationY:randomNum(-360, 360), rotationZ:randomNum(-360, 360), scale:0}, {autoAlpha:1, rotation:0, rotationX:0, rotationY:0, rotationZ:0, scale:1, onComplete: textFadeDown});                 
+        });
+    
+    }
+
+    function textFadeDown(){
+        $subtitlePaths = $('.img--headline svg #subtitle').find("path");
+        $subtitlePaths.css('opacity', 1);
+
+        TweenMax.staggerFromTo( $subtitlePaths, 0.1, {autoAlpha:0, rotationX:-90, top:"-30px"}, {autoAlpha:1, rotationX:0, top:"0px"}, 0.03);
+    }     
+    
+    // function reset(){
+    //     TweenMax.to($startAnim, 1, {autoAlpha:1});
+    // }
+    
+    //helper function
+    function randomNum (min, max) {
+        return Math.random() * (max - min) + min;
+    }   
+
+    // rotateCharacters(); 
 
 })();

@@ -72,7 +72,7 @@
 		// console.log(idx);		
 		if(idx != this.current) {
 			this.hide( this.current );	
-			this.current = idx != undefined ? idx : this.options.start >= 0 && this.options.start < this.items.length ? this.options.start : 0;
+			this.current = idx != undefined ? idx : this.options.start >= 0 && this.options.start < this.items.length ? this.options.start : 2;
 			this.tabs[ this.current ].classList.add('is-active');
 			if( idx != undefined) {
 				$(this.items[ this.current ]).addClass('is-active').trigger('activatePB');
