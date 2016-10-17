@@ -110,8 +110,8 @@ function returnRoot() {
             ['#psPB', '#designer', '#6DA6DF', '#63A6EA', 0.93],
             ['#illPB', '#designer', '#F1AD46', '#FDAE39', 0.92],
             ['#sketchPB', '#designer', '#E2E441', '#F6F938', 1.0],
-            ['#reactPB', '#technologies', '#8E8D8D', '#61DAFB', 0.85],
-            ['#railsPB', '#technologies', '#D46C6C', '#D04646', 0.80],
+            ['#reactPB', '#technologies', '#8E8D8D', '#61DAFB', 0.92],
+            ['#railsPB', '#technologies', '#D46C6C', '#D04646', 0.91],
             ['#gitPB', '#technologies', '#8E8D8D', '#616161', 0.77],
             ['#imPB', '#skills', '#B97C7C', '#C17070', 0.97],
             ['#seoPB', '#skills', '#686B92', '#5F6396', 0.90],
@@ -187,7 +187,7 @@ function returnRoot() {
                     pb.animate(value);
                 });                                               
             },
-            offset: 295
+            offset: 480
         });
         
         // ------  SCROLL MAGIC  ------          
@@ -351,7 +351,7 @@ function returnRoot() {
           }
         }        
 
-        $('#logo').load('./images/svg/logo.svg', rotateCharacters);
+        $('#logo').load('./images/svg/logo.svg');
         loadSvg('#poker-logo', './images/svg/chuck_norris_logo');
 
         // loadSvg("#lines2", "./images/svg/embed/lines2");
@@ -450,7 +450,6 @@ function returnRoot() {
         // TweenLite.set($startAnim, {autoAlpha:0});
                                                 
         // TweenMax.delayedCall(2, reset);
-        debugger;
         $titlePaths.each(function(){
             TweenMax.fromTo(this, 2, {autoAlpha:0, rotation:randomNum(-360, 360), rotationX:randomNum(-360, 360), rotationY:randomNum(-360, 360), rotationZ:randomNum(-360, 360), scale:0}, {autoAlpha:1, rotation:0, rotationX:0, rotationY:0, rotationZ:0, scale:1, onComplete: textFadeDown});                 
         });
@@ -461,7 +460,9 @@ function returnRoot() {
         $subtitlePaths = $('.img--headline svg #subtitle').find("path");
         $subtitlePaths.css('opacity', 1);
 
-        TweenMax.staggerFromTo( $subtitlePaths, 0.1, {autoAlpha:0, rotationX:-90, top:"-30px"}, {autoAlpha:1, rotationX:0, top:"0px"}, 0.03);
+        debugger;
+
+        TweenMax.staggerFromTo( $subtitlePaths, 2, {autoAlpha:0, rotationX:-90, top:"-30px"}, {autoAlpha:1, rotationX:0, top:"0px"}, .3);
     }     
     
     // function reset(){

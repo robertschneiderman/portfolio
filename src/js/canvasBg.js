@@ -90,6 +90,14 @@
         }
         window.requestAnimationFrame(loop);
     }
+
+    function resume() {
+        window.requestAnimationFrame(loop);        
+    }
+
+    function stop() {
+        window.cancelAnimationFrame(loop);
+    }
     
     function loop(){ //Function of loop that will be called for a frame of the animation
         window.requestAnimationFrame(loop);

@@ -43,11 +43,10 @@
 	        <div class="header">
 	            <h2 class="main">About Me</h2></div>
 	        <div class="text--about">
-	            <p class="body">I am a <span class="highlight">web designer</span> and <span class="highlight">developer</span> with a fascination for all things web. For the past seven years, I have invested thousands of hours designing and coding professional looking
-	                websites with amazing user experiences.
-	                <br><span class="spacer">My <span class="color-primary">philosophy</span> is that:</span>
-	                <br>
-	                <br>A website is much more than a convenient medium to transmit information to clients. A website, rather, is an extension of a company’s brand, and as such, it must convey to one’s clientele that it is professional and trustworthy.</p>
+	            <p class="body">I am a web developer and tech enthusiast with a fascination for all things web. For the past four years, I have invested thousands of hours designing and coding professional looking
+	            websites with amazing user experiences.<br><br>
+	            My focus for the past 18 months has been primarily on web apps. I am using a React and Rails stack to create beautiful and engaging web applications.<br><br>
+	            If you'd like to reach out to me, use my contact form at the bottom. I am based out of San Francisco.
 	        </div>
 	    </div>
 	    <div id="trigger-skills" class="trigger"></div>	    
@@ -139,7 +138,7 @@
 	                    <div class="ib ta-center">
 	                        <div id="railsPB" class="img--progress-bar"></div>
 	                        <p class="tooltip--pb">Rob uses Ruby on Rails as his preferred back end framework. He enjoys the incredible speed of developement that Rails offers, as well as the intuitive design of the framework and the beautiful Ruby syntax</p>
-	                        <h3 class="title--pb">AngularJs</h3></div>&nbsp;
+	                        <h3 class="title--pb">Ruby on Rails</h3></div>&nbsp;
 	                    <div class="ib ta-center">
 	                        <div id="gitPB" class="img--progress-bar"></div>
 	                        <p class="tooltip--pb">Rob has experience using Git, the popular version control system. Alongside Git, Rob uses other command line tools for his projects such as Bower and NPM.</p>
@@ -170,7 +169,7 @@
 	<section class="section--my-projects">
 	  <div class="header" style="margin-bottom: 3.5rem">
 	      <h2 class="main">Projects</h2>
-	      <p class="sub">I make custom web designs using the highest coding standards. My work does an exceptional job of engaging users and boosts brand trust.</p>
+	      <p class="sub">Here are some projects that I did using a combination of React, Redux, Rails, Javascript, and jQuery. The code follows best design patterns and has been held to strict standards and peer review</p>
 	  </div>
 
 	  <div class="project-container">
@@ -189,14 +188,14 @@
 	    <div class="project-text">
 	    	<div id="poker-logo" class="project-logo"></div>
 	    	<!-- <h3 class="project-title">Poker with Chuck Norris</h3> -->
-	    	<p class="project-description">Poker with Chuck Norris is a Texas Holdem game developed with React. Rob built an advanced AI that leverages calls to a poker odds API. The game features Facebook login and rich social media functionality</p>
+	    	<p class="project-description">Poker with Chuck Norris is a Texas Holdem game developed with React. I built an advanced AI that leverages calls to a poker odds API. The game features Facebook login and rich social media functionality</p>
 	    </div>
 	  </div>
 
 	  <div class="project-container pjc-right">
 	    <div class="project-text">
 	    	<img class="project-logo" src="./images/svg/stellar_pixels_logo.svg">
-	    	<p class="project-description">Stellar Pixels is a full stack stock photography web application that is built using React and Rails. The site has a rich database of photos that it gets from API calls.</p>
+	    	<p class="project-description">Stellar Pixels is a full stack stock photography web application that is built using React/Redux and Rails. The site has a rich database of photos that it gets from asynchronous API calls. Currently, unprecendented search functionality is being implemented using tracking.js.</p>
 	    </div>      
 	  	<div class="project-video-wrapper">
 	  	  <a href="https://stellar-pixels.herokuapp.com/#/?_k=1ee712" rel="external">
@@ -236,8 +235,8 @@
 
 	<section class="section--my-work section--my-work-developer">
 	    <div class="header" style="margin-bottom: 3.5rem">
-	        <h2 class="main">Client Work</h2>
-	        <p class="sub">I make custom web designs using the highest coding standards. My work does an exceptional job of engaging users and boosts brand trust.</p>
+	        <h2 class="main">Professional Work</h2>
+	        <p class="sub">Here are some professional examples of work that I did. These custom web designs followed the highest coding standards and excel at engaing users and boosting brand trust.</p>
 	    </div>
 	    <div class="container--works">
 	        <div class="row cj">

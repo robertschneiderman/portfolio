@@ -33,6 +33,11 @@
   }
 }
 
+@font-face {
+    font-family: "Variane Script";
+    src: url(http://www.example.org/mycustomfont.ttf) format("truetype");
+}
+
 /* !HELPERS */
 .clearfix:after {
   content: ".";
@@ -939,12 +944,12 @@ button.form--contact__btn:hover {
 }
 
 .header > .main {
-    color: #77C9B4;
-    font-family: "Variane Script";
-    display: inline-block;
-    font-weight: 300;
-    font-size: 3.5em;
-    margin-bottom: 1rem;
+  color: #77C9B4;
+  font-family: "Variane Script", Verdana, Tahoma;
+  display: inline-block;
+  font-weight: 300;
+  font-size: 3.5em;
+  margin-bottom: 1rem;
 }
 
 /*.header > .main:after {
@@ -1750,7 +1755,7 @@ canvas {
 }
 
 .img--headline svg #subtitle path {
-  opacity: 0;
+  /*opacity: 0;*/
 }
 
 #bg {
