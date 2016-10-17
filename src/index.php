@@ -174,7 +174,7 @@
 
 	  <div class="project-container">
 	  	<div class="project-video-wrapper">
-	  	  <a href="http://pokerwithchucknorris.com" rel="external">
+	  	  <a href="http://pokerwithchucknorris.com/?utm_source=site" rel="external">
 	  	      <video id="video" class="project-video">
 	  	        <source data-src="./images/poker_with_chuck_norris.webm" type="video/webm">
 	  	      Your browser does not support the video tag.
@@ -198,7 +198,7 @@
 	    	<p class="project-description">Stellar Pixels is a full stack stock photography web application that is built using React/Redux and Rails. The site has a rich database of photos that it gets from asynchronous API calls. Currently, unprecendented search functionality is being implemented using tracking.js.</p>
 	    </div>      
 	  	<div class="project-video-wrapper">
-	  	  <a href="https://stellar-pixels.herokuapp.com/#/?_k=1ee712" rel="external">
+	  	  <a href="http://stellarpixels.co/?utm_source=site" rel="external">
 	  	      <video id="video2" class="project-video">
 	  	        <source data-src="./images/stellar_pixels.webm" type="video/webm">
 	  	      Your browser does not support the video tag.
@@ -213,7 +213,7 @@
 
 	  <div class="project-container">
 	  	<div class="project-video-wrapper">
-	  	  <a href="http://tabsoverflow.com" rel="external">
+	  	  <a href="http://tabsoverflow/?utm_source=site" rel="external">
 	  	      <video id="video3" class="project-video">
 	  	        <source data-src="./images/tabs_overflow.webm" type="video/webm">
 	  	      Your browser does not support the video tag.
