@@ -35,7 +35,7 @@
 
 @font-face {
     font-family: "Variane Script";
-    src: url(http://www.example.org/mycustomfont.ttf) format("truetype");
+    src: url('../../variane_script.ttf') format("truetype");
 }
 
 /* !HELPERS */
@@ -668,8 +668,9 @@ section.section--landing {
 } 
 
 .section--contact {
-    opacity: 0;    
+    opacity: 0;
     padding: 2rem 0;
+    margin-bottom: 6rem;
 }       
 
 .section--footer {
@@ -1112,9 +1113,9 @@ button.form--contact__btn:hover {
   border-radius: 8px;
   left: 50%;
   opacity: 0;
-  padding: 0 0 1em;
+  padding: 0 0 2em;
   pointer-events: none;
-  position: absolute;
+  position: fixed;
   top: 0%;
   transform: translate3d(-50%, -50%, 0);
   transition: .5s top, 1s opacity;
@@ -1123,18 +1124,21 @@ button.form--contact__btn:hover {
   z-index: 9999;
 }
 
-.modal.is-active {
+.modal.active {
   opacity: 1;
   pointer-events: auto;
   top: 50%;
 }
 
 .modal__heading {
+  color: #fff;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  color: #fff;
+  /* color: #9c9c9c; */
   padding: .4em 1.5em;
   text-align: center;
+  width: 100%;
+  background-color: #b9e4b9;
 }
 
 .modal__heading.success {
@@ -1147,7 +1151,8 @@ button.form--contact__btn:hover {
 
 .modal__body {
   font-weight: 400;
-  padding: 2em 3em;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
 }
 
 .modal__btn {

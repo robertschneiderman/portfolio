@@ -474,6 +474,33 @@ function returnRoot() {
         return Math.random() * (max - min) + min;
     }   
 
-    // rotateCharacters(); 
+    let form = $('#contact-form');
+    let modal = $('#modal');
+
+    $(form).submit(function(e) {
+        e.preventDefault();
+        let formData = $(form).serialize();
+        $.ajax({
+            type: 'POST',
+            url: $(form).attr('action'),
+            data: formData
+        }).done(function(response) {
+            modal.addClass('active');
+
+            let name = $('#input-name').val();
+            console.log("name:", name);
+            $('#modal-name').text(name);
+
+            $('#input-name').val('');
+            $('#input-email').val('');
+            $('#input-message').val('');
+        })
+    });
+
+    $('#modal-close-btn').click(e => {
+      e.preventDefault();
+      modal.removeClass('active');
+    }) 
+
 
 })();

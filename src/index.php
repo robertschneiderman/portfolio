@@ -28,10 +28,11 @@
 
 	<section class="section--landing">
 	  <div id="modal" class="modal">
-	      <svg id="modal-close-btn" class="modal__btn">
-	          <use xlink:href="images/sprites/svgsprite.svg#x"></use>
-	      </svg>
-	      <?php if ($_SERVER['REQUEST_METHOD'] == 'GET') { if($_GET['contact'] == 'fail') { $title = "Failed to send!"; $class = "failure"; $message = 'The message was not successfully sent. Please review the information. It has been saved in the form'; } else { $firstName = substr($_GET['name'], 0, strrpos($_GET['name'], ' ')); $title = "Message sent!"; $class = "success"; $message = 'Thank you for contacting me, <strong>' . $firstName . '</strong>. I will be contacting you at <strong>' . $_GET['email'] . '</strong> within 24 hours.'; } echo "<h2 class='modal__heading ". $class . "'>" . $title . "</h2>"; echo "<p class='modal__body'>" . $message . "</p>"; } ?>
+      <svg id="modal-close-btn" class="modal__btn">
+        <use xlink:href="images/sprites/svgsprite.svg#x"></use>
+      </svg>
+      <h2 class='modal__heading'>Success</h2>
+      <p class='modal__body'>Thank you for contacting me, <span id="modal-name"></span>! I will be touching base with you shortly.</p>
 	  </div>
 
 	  <div id="logo" class="img--headline"></div>
