@@ -242,7 +242,9 @@ function returnRoot() {
         var skillsCanvasChange1 = new ScrollMagic.Scene({
                         triggerElement: "#trigger-skills",
                         duration: 300
-                    }).setTween("#canvas", 0.5, {opacity: 0}).addTo(controller);                                                                
+                    }).setTween("#canvas", 0.5, {opacity: 0}).addTo(controller);
+
+                    // console.log("ScrollMagic:", ScrollMagic);                                                             
 
         var skillsCanvasChange = new ScrollMagic.Scene({
                         triggerElement: "#trigger-skills",
@@ -344,15 +346,17 @@ function returnRoot() {
             // Append the SVG to the target
             ajax.onload = function(e) {
               target.innerHTML = ajax.responseText;
-            }
+            };
           } else {
             // Fallback to png
             target.innerHTML = "<img src='" + url + ".png' />";
           }
         }        
 
-        $('#logo').load('./images/svg/logo.svg');
+        // $('#logo').load('./images/svg/logo.svg');
         loadSvg('#poker-logo', './images/svg/chuck_norris_logo');
+        // loadSvg('#hi-im', './images/svg/hi_im');
+        // loadSvg('#rob', './images/svg/rob');
 
         // loadSvg("#lines2", "./images/svg/embed/lines2");
         // loadSvg("#lines-crazy", "./images/svg/embed/lines-crazy");
@@ -402,6 +406,22 @@ function returnRoot() {
               className: 'videoBG' // Add custom CSS class to Vide div
             }
         );
+
+        // ------  VIVUS  ------        
+
+        new Vivus('hi-im', {duration: 100}, () => {
+        });
+        new Vivus('rob', {
+            duration: 100,
+            onReady: function (myVivus) {
+                // myVivus.el.style.visibility = 'inherit';
+            }
+        }, () => {
+                document.getElementById('subtext').classList.add('subtextSlideDown');
+        });
+        
+
+        
 
         // ------  WAYPOINT  ------
 
@@ -494,13 +514,13 @@ function returnRoot() {
             $('#input-name').val('');
             $('#input-email').val('');
             $('#input-message').val('');
-        })
+        });
     });
 
     $('#modal-close-btn').click(e => {
       e.preventDefault();
       modal.removeClass('active');
-    }) 
+    }); 
 
 
 })();

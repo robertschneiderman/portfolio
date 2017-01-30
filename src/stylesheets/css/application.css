@@ -35,7 +35,7 @@
 
 @font-face {
     font-family: "Variane Script";
-    src: url('../../variane_script.ttf') format("truetype");
+    src: url('../../fonts/variane_script.ttf') format("truetype");
 }
 
 /* !HELPERS */
@@ -1020,11 +1020,10 @@ button.form--contact__btn:hover {
 
 .img--headline {
     /* animation: growIn .8s ease 0s 1 normal forwards; */
-    display: block;
     /* height: 174px; */
     /* margin: 0 auto; */
-    max-width: 1120px;
-    width: 90%;
+    max-width: 1180px;
+    width: 100%;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -1843,4 +1842,36 @@ canvas {
   opacity: 0;
   bottom: -100px;
 }
+
+.logo-main {
+    max-width: 1180px;
+    width: 100%;  
+    display: flex;
+    justify-content: space-between;    
+}
+
+#hi-im-container, #rob-container {
+  /* width: 70%; */
+  margin: 0 auto;
+}
+
+#hi-im-container {margin-right: 6rem;width: 109%;}
+
+#rob-container {width: 40rem;}
+
+/*#rob-container svg {visibility: hidden;}*/
+
+.subtext {
+  width: 100%;
+  opacity: 0;
+  transform: translateY(0px)
+}
+
+.subtextSlideDown {
+  transition: all .8s;
+  opacity: 1;
+  transform: translateY(30px);
+}
+
+
 /*# sourceMappingURL=application.css.map */
