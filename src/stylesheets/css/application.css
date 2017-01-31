@@ -1853,11 +1853,15 @@ canvas {
 #hi-im-container, #rob-container {
   /* width: 70%; */
   margin: 0 auto;
+  visibility: hidden;
 }
 
 #hi-im-container {margin-right: 6rem;width: 109%;}
 
 #rob-container {width: 40rem;}
+
+#hi-im, #rob {
+}
 
 /*#rob-container svg {visibility: hidden;}*/
 
